@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="import_vendor_pricelist_form_view" model="ir.ui.view">
+        <field name="name">import.vendor.pricelist</field>
+        <field name="model">import.vendor.pricelist</field>
+        <field name="arch" type="xml">
+            <form string="Import Vendor Price">
+                <sheet>
+                    <group>
+                        <group>
+                           <field name="file" filename="file_name" placeholder="Upload File"/>
+                            <field name="file_name" invisible="1"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="import_file" string="Import" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_import_vendor_pricelist" model="ir.actions.act_window">
+        <field name="name">Import Vendor Pricelist</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">import.vendor.pricelist</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="import_product_pricelist_menu" name="Import Vendor Pricelist"
+              action="import_vendor_pricelist.action_import_vendor_pricelist"
+              parent="stock.menu_stock_inventory_control"/>
+</odoo>
